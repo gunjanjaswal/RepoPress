@@ -14,18 +14,35 @@ jobs:
       fail-fast: false
       matrix:
         php: [ '7.4', '8.0', '8.1', '8.2', '8.3' ]
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
-
       - name: Lint every PHP file
         run: |
           find . -name '*.php' -not -path './vendor/*' -print0 \
             | xargs -0 -n1 -P4 php -l
+
+  quality:
+    name: Lint & readme
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gunjanjaswal/WP-Plugin-CI@v1
+        with:
+          php-version: '8.2'
+          readme: readme.txt
+
+  version:
+    name: Version guard
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gunjanjaswal/WP-Plugin-Version-Guard@v1
+        with:
+          plugin-file: repopress.php
+          readme: readme.txt
+          constant: REPOPRESS_VERSION
+          changelog: CHANGELOG.md
