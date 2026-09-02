@@ -1,0 +1,33 @@
+# Files and folders that should NOT ship to the WordPress.org plugin build.
+# Everything not listed here is included, so runtime code and the bundled
+# Parsedown parser are always shipped.
+
+/.git
+/.github
+/.gitignore
+/.distignore
+/.editorconfig
+
+# Dev docs (WordPress.org uses readme.txt, not these)
+/README.md
+/CHANGELOG.md
+/CONTRIBUTING.md
+
+# WordPress.org assets are deployed to a separate SVN path, not the plugin build
+/assets
+
+# Tooling
+/node_modules
+/vendor/bin
+/tests
+composer.json
+composer.lock
+phpcs.xml
+phpcs.xml.dist
+package.json
+package-lock.json
+
+# Misc
+*.zip
+*.log
+.DS_Store

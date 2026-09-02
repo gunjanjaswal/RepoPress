@@ -1,0 +1,17 @@
+# Dependencies
+/vendor/
+/node_modules/
+
+# Build output
+/build/
+*.zip
+
+# Editor and OS
+.DS_Store
+.idea/
+.vscode/
+*.sublime-*
+
+# Logs and env
+*.log
+.env
