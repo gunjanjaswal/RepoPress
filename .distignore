@@ -12,6 +12,7 @@
 /README.md
 /CHANGELOG.md
 /CONTRIBUTING.md
+includes/lib/README.md
 
 # WordPress.org assets are deployed to a separate SVN path, not the plugin build
 /assets
