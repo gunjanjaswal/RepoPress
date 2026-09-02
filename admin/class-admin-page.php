@@ -156,7 +156,7 @@ class RepoPress_Admin_Page {
 			'repopress_notice' => $notice,
 		);
 		if ( '' !== $detail ) {
-			$args['repopress_detail'] = rawurlencode( $detail );
+			$args['repopress_detail'] = $detail;
 		}
 		wp_safe_redirect( add_query_arg( $args, admin_url( 'admin.php' ) ) );
 		exit;

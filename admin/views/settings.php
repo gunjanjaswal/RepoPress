@@ -18,7 +18,7 @@ $repopress_is_ready  = ( '' !== $repopress_config['owner'] && '' !== $repopress_
 
 // Read notice (redirect params are display-only, sanitized here).
 $repopress_notice = isset( $_GET['repopress_notice'] ) ? sanitize_key( wp_unslash( $_GET['repopress_notice'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-$repopress_detail = isset( $_GET['repopress_detail'] ) ? sanitize_text_field( rawurldecode( wp_unslash( $_GET['repopress_detail'] ) ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+$repopress_detail = isset( $_GET['repopress_detail'] ) ? sanitize_text_field( wp_unslash( $_GET['repopress_detail'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended
 
 $repopress_notices = array(
 	'saved'      => array( 'success', __( 'Settings saved.', 'repopress' ) ),
